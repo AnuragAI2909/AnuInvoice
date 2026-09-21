@@ -16,7 +16,6 @@ Customer message → AI extraction → price lookup → invoice → your review 
 - **Needs your approval.** You review and correct the details, then approve. The approval is tied to the exact invoice contents, so if you change anything afterwards, it is revoked automatically.
 - **Exports after approval.** A branded PDF, CSV, JSON and a WhatsApp click-to-chat message.
 - **Calculates correctly.** Exact decimal math with configurable discount and GST, and Indian number formatting (₹12,34,567.50).
-- **Works with or without an AI key.** It has an offline rule-based parser, so it runs with no setup. You can also choose Claude, OpenAI, Groq or Gemini for harder, free-form messages.
 
 ## Quick start
 
@@ -97,9 +96,6 @@ samples/messages.txt    Example messages to try
 - The offline parser is designed for common English phrasing. For unusual wording, use an AI engine.
 - There is one tax rate per invoice, with no per-item GST slabs yet.
 - Ideas for later: Airtable as a price source, email sending, multiple currencies per invoice, customer records, and a login for team use.
-
-## License
-
 
 
 Built by Anurag Singh.

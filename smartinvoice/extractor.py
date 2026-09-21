@@ -2,7 +2,6 @@
 
 Two interchangeable extractors return the same ``ExtractedRequest``:
 
-* ``llm_extract``        - Claude / OpenAI / Groq / Gemini over plain HTTPS (no SDK needed).
 * ``rule_based_extract`` - deterministic regex/heuristic parser; works offline, used as fallback.
 
 Safety design
@@ -90,7 +89,6 @@ def build_prompt(message: str, service_names: list[str]) -> tuple[str, str]:
 
 
 PROVIDERS = {
-    "anthropic": {"label": "Anthropic Claude", "model": "claude-sonnet-5", "env": "ANTHROPIC_API_KEY"},
     "openai": {"label": "OpenAI", "model": "gpt-4o-mini", "env": "OPENAI_API_KEY",
                "base_url": "https://api.openai.com/v1"},
     "groq": {"label": "Groq", "model": "llama-3.3-70b-versatile", "env": "GROQ_API_KEY",
@@ -124,18 +122,7 @@ def call_llm(provider: str, api_key: str, model: str | None, system: str, user: 
     model = model or cfg["model"]
     if not api_key:
         raise ExtractionError(f"No API key provided for {cfg['label']}.")
-    if provider == "anthropic":
-        data = http_post(
-            "https://api.anthropic.com/v1/messages",
-            {"x-api-key": api_key, "anthropic-version": "2023-06-01"},
-            {"model": model, "max_tokens": 1000, "temperature": 0, "system": system,
-             "messages": [{"role": "user", "content": user}]},
-            45,
-        )
-        try:
-            return "".join(b.get("text", "") for b in data["content"] if b.get("type") == "text")
-        except (KeyError, TypeError) as exc:
-            raise ExtractionError("Unexpected Anthropic response shape.") from exc
+
     data = http_post(
         f"{cfg['base_url']}/chat/completions",
         {"Authorization": f"Bearer {api_key}"},

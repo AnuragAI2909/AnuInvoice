@@ -319,24 +319,24 @@ class LLMTests(unittest.TestCase):
         with self.assertRaises(ExtractionError):
             parse_llm_json("sorry, no")
 
-    def test_full_anthropic_flow_with_stub(self):
+    def test_full_llm_flow_with_stub(self):
         seen = {}
 
         def fake(url, headers, payload, timeout):
             seen.update(url=url, payload=payload)
-            return {"content": [{"type": "text", "text": json.dumps({
+            return {"choices": [{"message": {"content": json.dumps({
                 "customer_name": "Sam", "customer_email": None, "customer_phone": None, "company": None,
                 "items": [{"requested_text": "search engine optimisation", "quantity": 3,
-                           "catalog_hint": "SEO Optimization (Monthly)"}], "notes": "start next week"})}]}
+                           "catalog_hint": "SEO Optimization (Monthly)"}], "notes": "start next week"})}}]}
 
         r = extract("Sam here. 3 months of search engine optimisation, start next week.", CATALOG,
-                    "anthropic", "sk-test", http_post=fake)
-        self.assertEqual(r.method, "llm:anthropic")
-        self.assertIn("api.anthropic.com", seen["url"])
+                    "groq", "test-key", http_post=fake)
+        self.assertEqual(r.method, "llm:groq")
+        self.assertIn("api.groq.com", seen["url"])
         self.assertNotIn("12000", json.dumps(seen["payload"]))  # prices never sent to the model
         rows = rows_from_request(r, CATALOG)
         self.assertEqual((rows[0]["service"], rows[0]["quantity"]), ("SEO Optimization (Monthly)", 3.0))
-
+            
     def test_llm_failure_falls_back(self):
         def boom(*a):
             raise ExtractionError("HTTP 500")
