@@ -1,0 +1,16 @@
+SKU,Service,Unit,Unit Price,Aliases,Category,Description
+WEB-LP,Landing Page Design,page,8000,landing page;one page website;single page website,Web,Responsive single-page design with contact form
+WEB-BIZ,Business Website,project,25000,website;business website;company website;corporate website,Web,Up to 5 pages; responsive; basic SEO setup
+WEB-ECOM,E-commerce Website,project,60000,ecommerce;online store;shop website;web store,Web,Catalog; cart; payment gateway integration
+WEB-MAINT,Website Maintenance (Monthly),month,5000,maintenance;site maintenance;website upkeep,Web,Updates; backups; uptime monitoring
+LOGO,Logo Design,design,4500,logo;brand logo;logo designs,Design,3 concepts and 2 revision rounds
+BRAND,Brand Identity Kit,kit,15000,branding;brand kit;brand identity,Design,Logo; colour palette; typography; brand guide
+VIDEO,Explainer Video (60s),video,18000,explainer video;promo video;animated video,Design,60-second animated explainer with voice-over
+SEO,SEO Optimization (Monthly),month,12000,seo;search engine optimization;search engine optimisation,Marketing,On-page and off-page SEO with monthly report
+SMM,Social Media Management (Monthly),month,10000,social media;social media management;smm,Marketing,12 posts per month across 2 platforms
+CONTENT,Content Writing,article,1500,blog post;article;blog;content writing;copywriting,Marketing,Up to 800 words; plagiarism-free
+HOST,Web Hosting (Annual),year,3500,hosting;web hosting;website hosting,Infrastructure,Managed shared hosting; 99.9% uptime
+DOMAIN,Domain Registration,year,1200,domain;domain name;domain registration,Infrastructure,.com / .in domain registration
+SSL,SSL Certificate,year,1500,ssl;https certificate;ssl certificate,Infrastructure,Standard domain-validated SSL
+CONSULT,Consulting,hour,2000,consultation;consulting;advisory;tech consulting,Services,Strategy and technical advisory
+CHATBOT,AI Chatbot Setup,project,30000,chatbot;ai chatbot;chat bot,AI,Custom-trained website/WhatsApp chatbot
