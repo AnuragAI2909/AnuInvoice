@@ -91,16 +91,6 @@ tests/test_core.py      45 automated tests
 samples/messages.txt    Example messages to try
 ```
 
-## Deploying for free
-
-The easiest way to host it is Streamlit Community Cloud:
-
-1. Push the repo to GitHub (keep `app.py` at the repo root).
-2. On [share.streamlit.io](https://share.streamlit.io), create an app from the repo with main file `app.py`.
-3. Optionally add API keys under *Settings → Secrets*.
-
-`packages.txt` installs a font so the ₹ symbol shows in PDFs. On a free host the app may sleep after inactivity, and the dashboard data resets when it restarts.
-
 ## Limitations and ideas
 
 - The dashboard lives in memory only. A small database would make invoice history permanent.
@@ -110,8 +100,6 @@ The easiest way to host it is Streamlit Community Cloud:
 
 ## License
 
-Add the license you prefer (MIT is a common choice for personal projects).
 
----
 
-Built by Anurag.
+Built by Anurag Singh.
